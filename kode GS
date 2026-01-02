@@ -1,0 +1,62 @@
+function doPost(e) {
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheetName = "DATA";
+    const sh = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
+
+    // Header otomatis
+    if (sh.getLastRow() === 0) {
+      sh.appendRow([
+        "Timestamp",
+        "Region",
+        "Nama COU",
+        "Jenis Mesin",
+        "Merk",
+        "Type",
+        "Serial Number",
+        "Kecukupan",
+        "Saran / Usulan"
+      ]);
+    }
+
+    const data = JSON.parse(e.postData.contents);
+
+    const region = data.region || "";
+    const namaCOU = data.nama_cou || "";
+    const kecukupan = data.kecukupan || "";
+    const saran = data.saran || "";
+
+    data.mesin.forEach(m => {
+      sh.appendRow([
+        new Date(),
+        region,
+        namaCOU,
+        m.jenis || "",
+        m.merk || "",
+        m.type || "",
+        m.sn || "",
+        kecukupan,
+        saran
+      ]);
+    });
+
+    return ContentService
+      .createTextOutput(
+        JSON.stringify({
+          status: "success",
+          message: "Data berhasil disimpan"
+        })
+      )
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService
+      .createTextOutput(
+        JSON.stringify({
+          status: "error",
+          message: error.toString()
+        })
+      )
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
