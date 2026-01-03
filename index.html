@@ -135,7 +135,8 @@ function tambahMesin() {
     <div class="row g-2 mb-2">
       <div class="col-md-3">
         <label class="form-label small fw-bold">Jenis Mesin</label>
-        <select class="form-select jenis">
+        <select class="form-select jenis" required>
+          <option value="" disabled selected>-- Pilih Jenis Mesin --</option>
           <option>MHU</option>
           <option>MSU</option>
           <option>MPU</option>
@@ -146,7 +147,8 @@ function tambahMesin() {
 
       <div class="col-md-3">
         <label class="form-label small fw-bold">Merk</label>
-        <select class="form-select merk">
+        <select class="form-select merk" required>
+          <option value="" disabled selected>-- Pilih Jenis Merk --</option>
           <option>Norxel</option>
           <option>Glory</option>
           <option>Hitachi</option>
@@ -158,7 +160,8 @@ function tambahMesin() {
 
       <div class="col-md-6">
         <label class="form-label small fw-bold">Type Mesin</label>
-        <select class="form-select type">
+        <select class="form-select type" required>
+          <option value="" disabled selected>-- Pilih Jenis Type  --</option>
           <option>Norxel-DLRX-7500</option>
           <option>Norxel-DLRX-5500</option>
           <option>Norxel-NX-9300</option>
