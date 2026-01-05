@@ -78,6 +78,7 @@ body{
           <option>Region 8</option>
           <option>Region 9</option>
           <option>Region 10</option>
+
         </select>
       </div>
 
@@ -91,6 +92,8 @@ body{
       </h6>
 
       <div id="mesinContainer"></div>
+
+        <p style="font-weight: bolder;color: darkred;font-style: italic;"> Untuk menambahkan data mesin lainnya silahkan klik tombol tambah mesin !</p>
 
       <button class="btn btn-outline-primary btn-sm mt-2" onclick="tambahMesin()">
         <i class="bi bi-plus-circle"></i> Tambah Data Mesin
@@ -134,7 +137,7 @@ body{
 </div>
 
 <script>
-const webAppURL = "https://script.google.com/macros/s/AKfycbwH7fmKvZD-zZMedn2HuYRT9EVsyqEnkHELtSWzA5WqpohQjMKcK7qp5OOkKJBdgLjj2Q/exec";
+const webAppURL = "https://script.google.com/macros/s/AKfycbzvtkoSNHyJuP2Ub97ZMlDvL6Org7QySMnoiefxUwFA9Y7auSK-VpLe2zuGP0dNROtvTg/exec";
 
 /* === FUNGSI ASLI: TAMBAH MESIN (TETAP ADA) === */
 function tambahMesin() {
@@ -241,6 +244,14 @@ function tambahMesin() {
           <option value="Remote">Remote</option>
         </select>
       </div>
+
+
+    <!-- BARIS  : mengisi remote -->
+    
+      <div class="col-md-3">
+        <label class="form-label small fw-bold"> Jika pilihan Remote ! </label>
+        <input class="form-control remote" placeholder=" Masukkan lokasi remote nya ">
+      </div>  
     </div>
   
   
@@ -263,7 +274,8 @@ function simpanData() {
       type: card.querySelector(".type").value,
       sn: card.querySelector(".sn").value,
       kondisi: card.querySelector(".kondisi").value,
-      lokasi: card.querySelector(".lokasi").value
+      lokasi: card.querySelector(".lokasi").value,
+      remote: card.querySelector(".remote").value,
     });
   });
 
