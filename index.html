@@ -89,6 +89,8 @@ body{
 
       <div id="mesinContainer"></div>
 
+      <p style="font-weight: bolder;color: darkred;font-style: italic;"> Untuk menambahkan data mesin lainnya silahkan klik tombol tambah mesin !</p>
+
       <button class="btn btn-outline-primary btn-sm mt-2" onclick="tambahMesin()">
         <i class="bi bi-plus-circle"></i> Tambah Data Mesin
       </button>
@@ -133,10 +135,10 @@ function tambahMesin() {
   div.innerHTML = `
     <!-- BARIS 1 : JENIS | MERK | TYPE -->
     <div class="row g-2 mb-2">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <label class="form-label small fw-bold">Jenis Mesin</label>
         <select class="form-select jenis" required>
-          <option value="" disabled selected>-- Pilih Jenis Mesin --</option>
+          <option value="" disabled selected>--Jenis Mesin --</option>
           <option>MHU</option>
           <option>MSU</option>
           <option>MPU</option>
@@ -145,10 +147,10 @@ function tambahMesin() {
         </select>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-2">
         <label class="form-label small fw-bold">Merk</label>
         <select class="form-select merk" required>
-          <option value="" disabled selected>-- Pilih Jenis Merk --</option>
+          <option value="" disabled selected>--Jenis Merk --</option>
           <option>Norxel</option>
           <option>Glory</option>
           <option>Hitachi</option>
@@ -162,10 +164,10 @@ function tambahMesin() {
         </select>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-2">
         <label class="form-label small fw-bold">Type Mesin</label>
         <select class="form-select type" required>
-          <option value="" disabled selected>-- Pilih Jenis Type  --</option>
+          <option value="" disabled selected>-- Jenis Type  --</option>
           <option>Norxel-DLRX-7500</option>
           <option>Norxel-DLRX-5500</option>
           <option>Norxel-NX-9300</option>
@@ -199,15 +201,39 @@ function tambahMesin() {
           <option>Cash Quip-HL-3300</option>
         </select>
       </div>
-    </div>
 
     <!-- BARIS 2 : SERIAL NUMBER -->
-    <div class="row mt 5">
-      <div class="col-md-6">
+    
+      <div class="col-md-3">
         <label class="form-label small fw-bold">Serial Number (SN)</label>
         <input class="form-control sn" placeholder="Masukkan Serial Number">
+      </div>   
+
+    <!-- BARIS 3 : KONDISI | LOKASI -->
+ 
+      <div class="col-md-2">
+        <label class="form-label small fw-bold">
+          <i class="bi bi-wrench-adjustable"></i> Kondisi Mesin
+        </label>
+        <select class="form-select kondisi" required>
+          <option value="" disabled selected>--Kondisi --</option>
+          <option value="Baik">Baik</option>
+          <option value="Rusak">Rusak</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label class="form-label small fw-bold">
+          <i class="bi bi-geo-alt"></i> Jenis Lokasi
+        </label>
+        <select class="form-select lokasi" required>
+          <option value="" disabled selected>-- Lokasi --</option>
+          <option value="COU">COU</option>
+          <option value="Remote">Remote</option>
+        </select>
       </div>
     </div>
+  
   `;
 
   document.getElementById("mesinContainer").appendChild(div);
@@ -221,7 +247,10 @@ function simpanData() {
       jenis: card.querySelector(".jenis").value,
       merk: card.querySelector(".merk").value,
       type: card.querySelector(".type").value,
-      sn: card.querySelector(".sn").value
+      sn: card.querySelector(".sn").value,
+      kondisi: card.querySelector(".kondisi").value,
+      lokasi: card.querySelector(".lokasi").value
+
     });
   });
 
