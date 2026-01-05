@@ -142,13 +142,15 @@ const webAppURL = "https://script.google.com/macros/s/AKfycbzvtkoSNHyJuP2Ub97ZMl
 /* === FUNGSI ASLI: TAMBAH MESIN (TETAP ADA) === */
 function tambahMesin() {
   const div = document.createElement("div");
-  div.className = "machine-card";
+  div.className = "machine-card mb-4";
 
   div.innerHTML = `
      <!-- BARIS 1 : JENIS | MERK | TYPE -->
     <div class="row g-2 mb-2">
       <div class="col-md-2">
-        <label class="form-label small fw-bold">Jenis Mesin</label>
+        <label class="form-label small fw-bold">
+         <i class="bi bi-cpu-fill text-primary"></i> Jenis Mesin
+        </label>
         <select class="form-select jenis" required>
           <option value="" disabled selected>--Jenis Mesin --</option>
           <option>MHU</option>
@@ -160,7 +162,9 @@ function tambahMesin() {
       </div>
 
       <div class="col-md-2">
-        <label class="form-label small fw-bold">Merk</label>
+        <label class="form-label small fw-bold">
+        <i class="bi bi-tags-fill text-success"></i>Merk
+        </label>
         <select class="form-select merk" required>
           <option value="" disabled selected>--Jenis Merk --</option>
           <option>Norxel</option>
@@ -177,7 +181,9 @@ function tambahMesin() {
       </div>
 
       <div class="col-md-2">
-        <label class="form-label small fw-bold">Type Mesin</label>
+        <label class="form-label small fw-bold">
+        <i class="bi bi-diagram-3-fill text-warning"></i>Type Mesin
+        </label>
         <select class="form-select type" required>
           <option value="" disabled selected>-- Jenis Type  --</option>
           <option>Norxel-DLRX-7500</option>
@@ -217,7 +223,9 @@ function tambahMesin() {
     <!-- BARIS 2 : SERIAL NUMBER -->
     
       <div class="col-md-3">
-        <label class="form-label small fw-bold">Serial Number (SN)</label>
+        <label class="form-label small fw-bold">
+         <i class="bi bi-upc-scan text-info"></i>Serial Number (SN)
+        </label>
         <input class="form-control sn" placeholder="Masukkan Serial Number">
       </div>   
 
@@ -236,7 +244,7 @@ function tambahMesin() {
 
       <div class="col-md-2">
         <label class="form-label small fw-bold">
-          <i class="bi bi-geo-alt"></i> Jenis Lokasi
+          <i class="bi bi-geo-alt-fill text-secondary"></i>Jenis Lokasi
         </label>
         <select class="form-select lokasi" required>
           <option value="" disabled selected>-- Lokasi --</option>
@@ -249,7 +257,9 @@ function tambahMesin() {
     <!-- BARIS  : mengisi remote -->
     
       <div class="col-md-3">
-        <label class="form-label small fw-bold"> Jika pilihan Remote ! </label>
+        <label class="form-label small fw-bold"> 
+        <i class="bi bi-broadcast-pin text-primary"></i> Jika pilihan Remote ! 
+        </label>
         <input class="form-control remote" placeholder=" Masukkan lokasi remote nya ">
       </div>  
     </div>
