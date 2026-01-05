@@ -16,6 +16,7 @@ function doPost(e) {
         "Serial Number",
         "Kondisi",
         "Lokasi",
+        "Remote",
         "Kecukupan",
         "Saran / Usulan"
       ]);
@@ -39,6 +40,7 @@ function doPost(e) {
         m.sn || "",
         m.kondisi || "",
         m.lokasi || "",
+        m.remote || "",
         kecukupan,
         saran
       ]);
