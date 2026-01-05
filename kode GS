@@ -14,6 +14,8 @@ function doPost(e) {
         "Merk",
         "Type",
         "Serial Number",
+        "Kondisi",
+        "Lokasi",
         "Kecukupan",
         "Saran / Usulan"
       ]);
@@ -35,28 +37,23 @@ function doPost(e) {
         m.merk || "",
         m.type || "",
         m.sn || "",
+        m.kondisi || "",
+        m.lokasi || "",
         kecukupan,
         saran
       ]);
     });
 
-    return ContentService
-      .createTextOutput(
-        JSON.stringify({
-          status: "success",
-          message: "Data berhasil disimpan"
-        })
-      )
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(
+      JSON.stringify({ status: "success" })
+    ).setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
-    return ContentService
-      .createTextOutput(
-        JSON.stringify({
-          status: "error",
-          message: error.toString()
-        })
-      )
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(
+      JSON.stringify({
+        status: "error",
+        message: error.toString()
+      })
+    ).setMimeType(ContentService.MimeType.JSON);
   }
 }
