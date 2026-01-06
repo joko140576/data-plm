@@ -63,7 +63,6 @@ body{
 
     <div class="card-body">
 
-      <!-- REGION -->
       <div class="mb-3">
         <label class="form-label fw-bold">Region</label>
         <select id="region" class="form-select" required>
@@ -78,7 +77,6 @@ body{
           <option>Region 8</option>
           <option>Region 9</option>
           <option>Region 10</option>
-
         </select>
       </div>
 
@@ -93,7 +91,9 @@ body{
 
       <div id="mesinContainer"></div>
 
-        <p style="font-weight: bolder;color: darkred;font-style: italic;"> Untuk menambahkan data mesin lainnya silahkan klik tombol tambah mesin !</p>
+      <p class="fw-bold text-danger fst-italic">
+        Untuk menambahkan data mesin lainnya silahkan klik tombol tambah mesin !
+      </p>
 
       <button class="btn btn-outline-primary btn-sm mt-2" onclick="tambahMesin()">
         <i class="bi bi-plus-circle"></i> Tambah Data Mesin
@@ -101,7 +101,8 @@ body{
 
       <div class="mt-4">
         <label class="form-label fw-bold">Apakah sarana mesin sudah cukup?</label>
-        <select id="kecukupan" class="form-select">
+        <select id="kecukupan" class="form-select" required>
+          <option value="">-- Pilih --</option>
           <option value="Cukup">Cukup</option>
           <option value="Kurang">Kurang</option>
         </select>
@@ -109,7 +110,7 @@ body{
 
       <div class="mt-3">
         <label class="form-label fw-bold">Saran / Usulan</label>
-        <textarea id="saran" class="form-control" rows="3"></textarea>
+        <textarea id="saran" class="form-control" rows="3" ></textarea>
       </div>
 
     </div>
@@ -145,14 +146,12 @@ function tambahMesin() {
   div.className = "machine-card mb-4";
 
   div.innerHTML = `
-     <!-- BARIS 1 : JENIS | MERK | TYPE -->
     <div class="row g-2 mb-2">
+
       <div class="col-md-2">
-        <label class="form-label small fw-bold">
-         <i class="bi bi-cpu-fill text-primary"></i> Jenis Mesin
-        </label>
+        <label class="form-label small fw-bold">Jenis Mesin</label>
         <select class="form-select jenis" required>
-          <option value="" disabled selected>--Jenis Mesin --</option>
+          <option value="">--Jenis Mesin--</option>
           <option>MHU</option>
           <option>MSU</option>
           <option>MPU</option>
@@ -162,11 +161,9 @@ function tambahMesin() {
       </div>
 
       <div class="col-md-2">
-        <label class="form-label small fw-bold">
-        <i class="bi bi-tags-fill text-success"></i>Merk
-        </label>
+        <label class="form-label small fw-bold">Merk</label>
         <select class="form-select merk" required>
-          <option value="" disabled selected>--Jenis Merk --</option>
+          <option value="">--Merk--</option>
           <option>Norxel</option>
           <option>Glory</option>
           <option>Hitachi</option>
@@ -181,11 +178,9 @@ function tambahMesin() {
       </div>
 
       <div class="col-md-2">
-        <label class="form-label small fw-bold">
-        <i class="bi bi-diagram-3-fill text-warning"></i>Type Mesin
-        </label>
+        <label class="form-label small fw-bold">Type</label>
         <select class="form-select type" required>
-          <option value="" disabled selected>-- Jenis Type  --</option>
+          <option value="">--Type--</option>
           <option>Norxel-DLRX-7500</option>
           <option>Norxel-DLRX-5500</option>
           <option>Norxel-NX-9300</option>
@@ -220,58 +215,58 @@ function tambahMesin() {
         </select>
       </div>
 
-    <!-- BARIS 2 : SERIAL NUMBER -->
-    
       <div class="col-md-3">
-        <label class="form-label small fw-bold">
-         <i class="bi bi-upc-scan text-info"></i>Serial Number (SN)
-        </label>
-        <input class="form-control sn" placeholder="Masukkan Serial Number">
-      </div>   
+        <label class="form-label small fw-bold">Serial Number</label>
+        <input class="form-control sn" required>
+      </div>
 
-    <!-- BARIS 3 : KONDISI | LOKASI -->
- 
       <div class="col-md-2">
-        <label class="form-label small fw-bold">
-          <i class="bi bi-wrench-adjustable"></i> Kondisi Mesin
-        </label>
+        <label class="form-label small fw-bold">Kondisi</label>
         <select class="form-select kondisi" required>
-          <option value="" disabled selected>--Kondisi --</option>
-          <option value="Baik">Baik</option>
-          <option value="Rusak">Rusak</option>
+          <option value="">--Kondisi--</option>
+          <option>Baik</option>
+          <option>Rusak</option>
         </select>
       </div>
 
       <div class="col-md-2">
-        <label class="form-label small fw-bold">
-          <i class="bi bi-geo-alt-fill text-secondary"></i>Jenis Lokasi
-        </label>
+        <label class="form-label small fw-bold">Lokasi</label>
         <select class="form-select lokasi" required>
-          <option value="" disabled selected>-- Lokasi --</option>
-          <option value="COU">COU</option>
-          <option value="Remote">Remote</option>
+          <option value="">--Lokasi--</option>
+          <option>COU</option>
+          <option>Remote</option>
         </select>
       </div>
 
-
-    <!-- BARIS  : mengisi remote -->
-    
       <div class="col-md-3">
-        <label class="form-label small fw-bold"> 
-        <i class="bi bi-broadcast-pin text-primary"></i> Jika pilihan Remote ! 
-        </label>
-        <input class="form-control remote" placeholder=" Masukkan lokasi remote nya ">
-      </div>  
+        <label class="form-label small fw-bold">Lokasi Remote</label>
+        <input class="form-control remote" >
+      </div>
+
     </div>
-  
-  
   `;
 
   document.getElementById("mesinContainer").appendChild(div);
 }
 
-/* === SIMPAN DATA + LOADING + MODAL === */
+/* === SIMPAN DATA + VALIDASI TAMBAHAN (TANPA UBAH LOGIKA ASLI) === */
 function simpanData() {
+
+  let valid = true;
+
+  document.querySelectorAll("[required]").forEach(el => {
+    if (!el.value) {
+      el.classList.add("is-invalid");
+      valid = false;
+    } else {
+      el.classList.remove("is-invalid");
+    }
+  });
+
+  if (!valid) {
+    alert("⚠️ Semua field wajib diisi!");
+    return;
+  }
 
   document.getElementById("loadingOverlay").style.display = "flex";
   document.getElementById("btnSave").disabled = true;
@@ -304,9 +299,7 @@ function simpanData() {
   .then(r => r.json())
   .then(() => {
     document.getElementById("loadingOverlay").style.display = "none";
-    new bootstrap.Modal(
-      document.getElementById("successModal")
-    ).show();
+    new bootstrap.Modal(document.getElementById("successModal")).show();
   })
   .catch(() => {
     document.getElementById("loadingOverlay").style.display = "none";
